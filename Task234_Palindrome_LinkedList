@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+
+public class Task234_Palindrome_LinkedList {
+    public boolean isPalindrome(ListNode head) {
+        ArrayList<Integer> valuesList = new ArrayList<>();
+        ListNode current = head;
+        while (current != null) {
+            valuesList.add(current.val);
+            current = current.next;
+        }
+        for (int i = 0; i <= valuesList.size() / 2; i++) {
+            if (!valuesList.get(i).equals(valuesList.get((valuesList.size() - 1) - i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    /**
+     * Definition for singly-linked list.
+     */
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {
+        }
+        ListNode(int val) {
+            this.val = val;
+        }
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+}
